@@ -1,20 +1,26 @@
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 
+import localFont from 'next/font/local'
+ 
+// Font files can be colocated inside of `pages`
+const myFont = localFont({ src: './pencil.ttf' })
+ 
 const GlobalStyle = createGlobalStyle`
 html{
-  box-sizing: border-box;
+  box-sizing: content-box;
   background: #f59ee2;
-  display:block;
   height: 100%;
-  margin:0 auto;
   padding: 0;
 }
 
 body{
   background-color:#f59ee2;
   min-height:100vh;
-  margin-top:0;
-  font-family:Verdana;
+  margin:0;
+}
+
+a {
+  text-decoration: none;
 }
 `;
  
@@ -29,7 +35,9 @@ function MyApp({ Component, pageProps }) {
     <>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
+        <main className={myFont.className}>
         <Component {...pageProps} />
+        </main>
       </ThemeProvider>
     </>
   );
