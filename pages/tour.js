@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components';
 
 export default function Tour() {
   return (
-      <Container id="tour">
+      <Container>
        <p>Tour</p>
       </Container>
   );
@@ -15,6 +15,6 @@ const Container = styled.div`
     justify-content: center;
     flex-direction: column;
     height: 100vh;
-    background-color: green;
+    background-color: #bb88fc;
 `;
 

@@ -1,10 +1,10 @@
 import styled, { keyframes } from 'styled-components';
 
 
-export default function Merch() {
+export default function AlterEgos() {
   return (
-      <Container id="merch">
-       <p>Merch</p>
+      <Container>
+       <p>Alter Egos</p>
       </Container>
   );
 }
@@ -15,6 +15,6 @@ const Container = styled.div`
     justify-content: center;
     flex-direction: column;
     height: 100vh;
-    background-color: blue;
+    background-color: teal;
 `;
 

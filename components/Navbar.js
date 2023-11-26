@@ -1,30 +1,42 @@
-import { Link } from 'react-scroll';
+import Link from 'next/link';
 import styled, {keyframes} from 'styled-components';
+import Image from 'next/image';
+import logo from 'public/logo.png';
+import { useRouter } from 'next/router';
+import { useState, useEffect } from 'react';
 
 export default function Navbar(props) {
 
+    const router = useRouter();
+    const [isHome, setIsHome] = useState(true);
+
+    useEffect(() => {
+        if (router.pathname === "/") {
+            setIsHome(true);
+        } else {
+            setIsHome(false);
+        }
+    }   , [router.pathname]);
+
   return (
         <WrapNavBar>
-            <NavItem activeClass="active" to="home" spy={true} smooth={true} duration={500}>
-                <span>H</span>
-                <span>O</span>
-                <span>M</span>
-                <span>E</span>
+            <Section>
+            {!isHome && <NavItem href="/">
+                <Logo src={logo} alt="logo" width={150} />
+            </NavItem>}
+            </Section>
+            <Section isHome >
+           <NavItem href="/tour">
+                TOUR
             </NavItem>
-           <NavItem activeClass="active" to="tour" spy={true} smooth={true} duration={500}>
-                <span>T</span>
-                <span>O</span>
-                <span>U</span>
-                <span>R</span>
-            </NavItem>
-            <NavItem activeClass="active" to="merch" spy={true} smooth={true} duration={500}>
+            <NavItem href="/merch">
                 <span>M</span>
                 <span>E</span>
                 <span>R</span>
                 <span>C</span>
                 <span>H</span>
             </NavItem>
-            <NavItem activeClass="active" to="alter-egos" spy={true} smooth={true} duration={500}>
+            <NavItem href="/alter-egos">
                 <Word>
                 <span>A</span>
                 <span>L</span>
@@ -39,13 +51,14 @@ export default function Navbar(props) {
                 <span>S</span>
                 </Word>
             </NavItem>
-            <NavItem activeClass="active" to="about" spy={true} smooth={true} offset={50} duration={500}>
+            <NavItem href="/about">
                 <span>A</span>
                 <span>B</span>
                 <span>O</span>
                 <span>U</span>
                 <span>T</span>
             </NavItem>
+            </Section>
         </WrapNavBar>
   )
 }
@@ -69,26 +82,23 @@ const pulse = keyframes`
 const WrapNavBar = styled.div`
     position: fixed;
     top: 0;
-    right: 0;
     display: flex;
-	align-items: center;
-	justify-content: center;
-    font-size: 1.5rem;
-    span {
-        color: #430FFD;
-    }
-    span:nth-child(2) {
-        color: #FF5A26;
-    }
-    span:nth-child(3) {
-        color: #FFD324;
-    }
-    span:nth-child(4) {
-        color: #07bc0b;
-    }
-    span:nth-child(5) {
-        color: #8237dc;
-    }
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    width: 100%;
+`;
+
+const Section = styled.div`
+    display: flex;
+    font-size: 2rem;
+    margin: ${props => props.isHome ? "1.3rem 0" : "0"};
+`;
+
+const Logo = styled(Image)`
+  width: 150px;
+  margin: 0.5rem;
+  height: auto;
 `;
 
 const NavItem = styled(Link)`
@@ -97,9 +107,26 @@ const NavItem = styled(Link)`
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    color: #000;
     &:hover {
         animation: ${pulse} 1s infinite;
     }
+    z-index: 2;
+    // span {
+    //     color: #430FFD;
+    // }
+    // span:nth-child(2) {
+    //     color: #FF5A26;
+    // }
+    // span:nth-child(3) {
+    //     color: #FFD324;
+    // }
+    // span:nth-child(4) {
+    //     color: #07bc0b;
+    // }
+    // span:nth-child(5) {
+    //     color: #8237dc;
+    // }
 `;
 
 const Word = styled.div`

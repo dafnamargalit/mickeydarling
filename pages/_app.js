@@ -1,9 +1,9 @@
 import { createGlobalStyle, ThemeProvider } from "styled-components";
-
+import Navbar from "components/Navbar";
 import localFont from 'next/font/local'
  
 // Font files can be colocated inside of `pages`
-const myFont = localFont({ src: './pencil.ttf' })
+const myFont = localFont({ src: './dadhand.ttf' })
  
 const GlobalStyle = createGlobalStyle`
 html{
@@ -36,6 +36,7 @@ function MyApp({ Component, pageProps }) {
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <main className={myFont.className}>
+        <Navbar />
         <Component {...pageProps} />
         </main>
       </ThemeProvider>
