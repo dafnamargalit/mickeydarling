@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import multipleStars from 'assets/multipleStars.png';
 import Link from 'next/link';
+import tourTitle from 'assets/tour.png';
 
 export default function Tour() {
   var [busPathLength, setBusPathLength] = useState(null);
@@ -60,8 +61,8 @@ link: 'https://www.ticketmaster.com/madeline-the-person-los-angeles-california-1
         <Image src={multipleStars} layout="fill" objectFit="cover" alt="stars" priority />
         <TourBus pathLength={busPathLength} />
         <BusColor />
-        <Header>
-        </Header>
+        <TourTitle src={tourTitle} alt="tour" />
+        <Header/>
         <TourList>
             {shows.map((show, index) => (
                 <ListItem key={index}>
@@ -97,7 +98,21 @@ const Header = styled.div`
     width: 100vw;
 
     @media (max-width: 768px) {
-        height: 20vh;
+        height: 33vh;
+    }
+`;
+
+const TourTitle = styled(Image)`
+    width: 300px;
+    height: auto;
+    position: absolute;
+    top: 3vh;
+    background: rgba(245, 158, 226);
+    z-index: 3;
+
+    @media (max-width: 768px) {
+        width: 200px;
+        top:13vh;
     }
 `;
 
