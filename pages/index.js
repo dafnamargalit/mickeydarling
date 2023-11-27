@@ -13,7 +13,7 @@ import L from 'assets/L.svg';
 import I2 from 'assets/I2.svg';
 import N from 'assets/N.svg';
 import G from 'assets/G.svg';
-import star from 'assets/star.png';
+import multipleStars from 'assets/multipleStars.png';
 import Image from 'next/image';
 import StarBackground from 'components/StarBackground';
 
@@ -26,43 +26,46 @@ export default function index() {
       <title>mickey darling</title>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
-    <StarBackground />
+    <Image src={multipleStars} layout="fill" objectFit="cover" alt="stars" priority />
+    <Announcement>
+      <p>ST. LOUIS // NEW YEARS EVE WITH CHERUB</p>
+    </Announcement>
     <DesktopLogo>
       <Row>
-          <Letters src={M} width="11vh" alt="M" />
-          <Letters src={I} anim width="5vh" alt="I"/>
-          <Letters src={C} width="6vh" alt="C"/>
-          <Letters src={K} anim alt="K" />
-          <Letters src={E} width="7vh" alt="E"/>
-          <Letters src={Y} anim width="8vh" alt="Y"/>
+          <Letters src={M} width="11vh" alt="M" priority />
+          <Letters src={I} anim="true" width="5vh" alt="I" priority />
+          <Letters src={C} width="6vh" alt="C" priority />
+          <Letters src={K} anim="true" alt="K" priority />
+          <Letters src={E} width="7vh" alt="E" priority />
+          <Letters src={Y} anim="true" width="8vh" alt="Y" priority />
       </Row>
       <Row>
-          <Letters src={D} width="6vh" alt="D"/>
-          <Letters src={A} anim alt="A" />
-          <Letters src={R} alt="R" />
-          <Letters src={L} anim alt="L" />
-          <Letters src={I2} width="6vh" alt="I"/>
-          <Letters src={N} anim alt="N" />
-          <Letters src={G} alt="G" />
+          <Letters src={D} width="6vh" alt="D" priority />
+          <Letters src={A} anim="true" alt="A" priority />
+          <Letters src={R} alt="R" priority />
+          <Letters src={L} anim="true" alt="L" priority />
+          <Letters src={I2} width="6vh" alt="I" priority />
+          <Letters src={N} anim="true" alt="N" priority />
+          <Letters src={G} alt="G" priority />
       </Row>
     </DesktopLogo>
     <MobileLogo>
       <Row>
-          <Letters src={M} width="5vh" alt="M" />
-          <Letters src={I} anim width="2vh" alt="I"/>
-          <Letters src={C} width="3vh" alt="C"/>
-          <Letters src={K} anim alt="K" width="5vh" />
-          <Letters src={E} width="4vh" alt="E"/>
-          <Letters src={Y} anim width="5vh" alt="Y"/>
+          <Letters src={M} width="5vh" alt="M" priority />
+          <Letters src={I} anim="true" width="2vh" alt="I" priority/>
+          <Letters src={C} width="3vh" alt="C" priority />
+          <Letters src={K} anim="true" alt="K" width="5vh" priority/>
+          <Letters src={E} width="4vh" alt="E" priority />
+          <Letters src={Y} anim="true" width="5vh" alt="Y" priority />
       </Row>
       <Row>
-          <Letters src={D} width="3vh" alt="D"/>
-          <Letters src={A} anim width="5vh" alt="A" />
-          <Letters src={R} alt="R" width="5vh" />
-          <Letters src={L} anim alt="L" width="5vh" />
-          <Letters src={I2} width="3vh" alt="I"/>
-          <Letters src={N} anim alt="N" width="5vh" />
-          <Letters src={G} alt="G" width="5vh" />
+          <Letters src={D} width="3vh" alt="D" priority />
+          <Letters src={A} anim="true" width="5vh" alt="A" priority />
+          <Letters src={R} alt="R" width="5vh" priority />
+          <Letters src={L} anim="true" alt="L" width="5vh" priority />
+          <Letters src={I2} width="3vh" alt="I" priority />
+          <Letters src={N} anim="true" alt="N" width="5vh" priority />
+          <Letters src={G} alt="G" width="5vh" priority />
       </Row>
     </MobileLogo>
   </Container>
@@ -70,13 +73,13 @@ export default function index() {
 }
 
 const Container = styled.div`
-display: flex;
-align-items: center;
-justify-content: center;
-flex-direction: column;
-height: 100vh;
-width: 100vw;
-overflow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: none;
 `;
 
 const pulse = keyframes`
@@ -113,9 +116,29 @@ animation:  ${p => p.anim ? pulse : pulse2} 0.5s alternate ease-out;
 
 `;
 
-const LittleStar = styled(Image)`
-  width: 5em;
-  height: auto;
+const Announcement = styled.div`
+  background-color: #FFD04F;
+  position: absolute;
+  top: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: #000 1px solid;
+  width: 300px;
+  font-size: 1rem;
+  padding: 0.5rem;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  @media (max-width: 768px) {
+    width: 200px;
+    font-size: 0.75rem;
+    top: 150px;
+  }
+  &:hover {
+    transform: scale(1.01);
+    transition: all 0.5s ease;
+    cursor: pointer;
+    background-color: #FFD324;
+    }
 `;
 
 const Row = styled.div`

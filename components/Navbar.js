@@ -25,7 +25,7 @@ export default function Navbar(props) {
                 <Logo src={logo} alt="logo" width={150} />
             </NavItem>}
             </Section>
-            <Section isHome >
+            <Section home="true" >
            <NavItem href="/tour">
                 TOUR
             </NavItem>
@@ -64,21 +64,6 @@ export default function Navbar(props) {
 }
 
 
-const pulse = keyframes`
-  0% {
-    transform: scale(1);
-    bottom: -0.2em;
-  }
-  50% {
-    transform: scale(1.2);
-    bottom: 0.2em;
-  }
-  100% {
-    transform: scale(1);
-    bottom: 0;
-  }
-`;
-
 const WrapNavBar = styled.div`
     position: fixed;
     top: 0;
@@ -91,8 +76,8 @@ const WrapNavBar = styled.div`
 
 const Section = styled.div`
     display: flex;
-    font-size: 2rem;
-    margin: ${props => props.isHome ? "1.3rem 0" : "0"};
+    font-size: 1.5rem;
+    margin: ${props => props.home ? "1.3rem 0" : "0"};
 `;
 
 const Logo = styled(Image)`
@@ -109,24 +94,10 @@ const NavItem = styled(Link)`
     cursor: pointer;
     color: #000;
     &:hover {
-        animation: ${pulse} 1s infinite;
+        color: #430FFD;
+        transition: all 0.5s ease;
     }
     z-index: 2;
-    // span {
-    //     color: #430FFD;
-    // }
-    // span:nth-child(2) {
-    //     color: #FF5A26;
-    // }
-    // span:nth-child(3) {
-    //     color: #FFD324;
-    // }
-    // span:nth-child(4) {
-    //     color: #07bc0b;
-    // }
-    // span:nth-child(5) {
-    //     color: #8237dc;
-    // }
 `;
 
 const Word = styled.div`
