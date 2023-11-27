@@ -2,6 +2,7 @@ import styled, { keyframes } from 'styled-components';
 import { Bus, BusFill } from 'assets';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import multipleStars from 'assets/multipleStars.png';
 
 export default function Tour() {
   var [busPathLength, setBusPathLength] = useState(null);
@@ -17,6 +18,7 @@ export default function Tour() {
 
   return (
       <Container>
+            <Image src={multipleStars} layout="fill" objectFit="cover" alt="stars" priority />
         <TourBus pathLength={busPathLength} />
         <BusColor />
       </Container>
@@ -34,14 +36,14 @@ const Container = styled.div`
 
 const BusColor = styled(BusFill)`
 width: 100vw;
-height: auto;
+height: 100vh;
 z-index: 0;
 position: absolute;
 `;
 
 const TourBus = styled(Bus)`
 width: 100vw;
-height: auto;
+height: 100vh;
 z-index: 1;
 position: absolute;
 & path {
@@ -54,6 +56,8 @@ position: absolute;
     stroke-miter-limit: 10;
     animation: dash 3s linear;   
     animation-fill-mode: forwards;
+    keypoints: 1, 0;
+    keytimes: 0, 1;
 }
 
 @keyframes dash {
