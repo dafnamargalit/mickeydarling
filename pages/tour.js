@@ -1,10 +1,24 @@
 import styled, { keyframes } from 'styled-components';
-
+import { Bus, BusFill } from 'assets';
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 export default function Tour() {
+  var [busPathLength, setBusPathLength] = useState(null);
+
+  useEffect(() => {
+    var path = document.querySelector('.Bus');
+    console.log(path);
+    if (path){
+      setBusPathLength(path.getTotalLength());
+    }
+    console.log(busPathLength);
+  });
+
   return (
       <Container>
-       <p>Tour</p>
+        <TourBus pathLength={busPathLength} />
+        <BusColor />
       </Container>
   );
 }
@@ -15,6 +29,37 @@ const Container = styled.div`
     justify-content: center;
     flex-direction: column;
     height: 100vh;
-    background-color: #bb88fc;
+    overflow: hidden;
+`;
+
+const BusColor = styled(BusFill)`
+width: 100vw;
+height: auto;
+z-index: 0;
+position: absolute;
+`;
+
+const TourBus = styled(Bus)`
+width: 100vw;
+height: auto;
+z-index: 1;
+position: absolute;
+& path {
+    fill: none;
+    stroke: #000;
+    stroke-width: 5px;
+    stroke-dasharray: ${props => props.pathLength + ' ' + props.pathLength};
+    stroke-dashoffset: ${props => -props.pathLength}; 
+    stroke-linecap: round;
+    stroke-miter-limit: 10;
+    animation: dash 3s linear;   
+    animation-fill-mode: forwards;
+}
+
+@keyframes dash {
+    100% {
+        stroke-dashoffset: ${props => -props.pathLength*2};
+    }
+}
 `;
 
