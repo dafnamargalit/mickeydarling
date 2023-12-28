@@ -1,82 +1,35 @@
+"use client";
+
 import styled, { keyframes } from 'styled-components';
 import { Bus, BusFill } from 'assets';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import multipleStars from 'assets/multipleStars.png';
 import Link from 'next/link';
 import tourTitle from 'assets/tour.png';
+import Script from 'next/script'
 
 export default function Tour() {
   var [busPathLength, setBusPathLength] = useState(null);
 
-  const shows = [
-    {
-        title: 'Madeline The Person w/ Dafna at The Moroccan Lounge',
-        date: 'Dec 7th 2023',
-        location: 'Los Angeles, CA',
-        link: 'https://www.ticketmaster.com/madeline-the-person-los-angeles-california-12-07-2023/event/09005F35F28047BC'
-    },    
-    {
-      title: 'Madeline The Person w/ Dafna at The Moroccan Lounge',
-      date: 'Dec 7th 2023',
-      location: 'Los Angeles, CA',
-      link: 'https://www.ticketmaster.com/madeline-the-person-los-angeles-california-12-07-2023/event/09005F35F28047BC'
-  },     
-  {
-    title: 'Madeline The Person w/ Dafna at The Moroccan Lounge',
-    date: 'Dec 7th 2023',
-    location: 'Los Angeles, CA',
-    link: 'https://www.ticketmaster.com/madeline-the-person-los-angeles-california-12-07-2023/event/09005F35F28047BC'
-},    
-{
-  title: 'Madeline The Person w/ Dafna at The Moroccan Lounge',
-  date: 'Dec 7th 2023',
-  location: 'Los Angeles, CA',
-  link: 'https://www.ticketmaster.com/madeline-the-person-los-angeles-california-12-07-2023/event/09005F35F28047BC'
-},    
-{
-  title: 'Madeline The Person w/ Dafna at The Moroccan Lounge',
-  date: 'Dec 7th 2023',
-  location: 'Los Angeles, CA',
-  link: 'https://www.ticketmaster.com/madeline-the-person-los-angeles-california-12-07-2023/event/09005F35F28047BC'
-},    
-{
-title: 'Madeline The Person w/ Dafna at The Moroccan Lounge',
-date: 'Dec 7th 2023',
-location: 'Los Angeles, CA',
-link: 'https://www.ticketmaster.com/madeline-the-person-los-angeles-california-12-07-2023/event/09005F35F28047BC'
-},     
-]
-
   useEffect(() => {
     var path = document.querySelector('.Bus');
-    console.log(path);
     if (path){
       setBusPathLength(path.getTotalLength());
     }
   });
 
+
   return (
       <Container>
-        <Image src={multipleStars} layout="fill" objectFit="cover" alt="stars" priority />
         <TourBus pathLength={busPathLength} />
         <BusColor />
         <TourTitle src={tourTitle} alt="tour" />
-        <Header/>
-        <TourList>
-            {shows.map((show, index) => (
-                <ListItem key={index}>
-                    <ListSection>
-                        <Title>{show.date}</Title>
-                        <Title>{show.title}</Title>
-                    </ListSection>
-                    <p>{show.location}</p>
-                    <TicketButton href={show.link}>
-                        TICKETS
-                    </TicketButton>
-                </ListItem>
-            ))}
-        </TourList>
+        <Header/> 
+        {/* TODO: check if list is loaded */}
+          <TourWrap>
+            <div id="seated-55fdf2c0" data-artist-id="e1796c0a-1afe-4112-bb74-6059df5e2e8b" data-css-version="3"/>
+            <Script src="https://widget.seated.com/app.js" />
+          </TourWrap>
       </Container>
   );
 }
@@ -153,7 +106,7 @@ transform: scaleX(1.1);
 }
 `;
 
-const TourList = styled.div`
+const TourWrap = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
