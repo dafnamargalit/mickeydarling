@@ -1,15 +1,30 @@
+"use client";
 import Link from 'next/link';
 import styled, {keyframes} from 'styled-components';
 import Image from 'next/image';
 import logo from 'public/logo.png';
 import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import { HamburgerMenu } from 'assets';
 
 export default function Navbar(props) {
 
     const router = useRouter();
     const [isHome, setIsHome] = useState(true);
+    const [width, setWidth] = useState(0);
+    const [show, setShow] = useState(false);
 
+    function handleWindowResize() {
+        setWidth(window.innerWidth);
+    };
+    
+    useEffect(() => {
+        setWidth(window.innerWidth);
+        window.addEventListener('resize', handleWindowResize);
+    }, width);
+
+    const isMobile = width <= 768;
+    
     useEffect(() => {
         if (router.pathname === "/") {
             setIsHome(true);
@@ -18,8 +33,35 @@ export default function Navbar(props) {
         }
     }   , [router.pathname]);
 
+
+
   return (
         <WrapNavBar>
+            <SlideInNav show={show}>
+                <NavItem href="/tour" onClick={() => setShow(!show)}>
+                    TOUR
+                </NavItem>
+                <NavItem href="/merch" onClick={() => setShow(!show)}>
+                   MERCH
+                </NavItem>
+                <NavItem href="/alter-egos" onClick={() => setShow(!show)}>
+                    ALTER EGOS  
+                </NavItem>
+                <NavItem href="/about" onClick={() => setShow(!show)}>
+                    ABOUT
+                </NavItem>
+            </SlideInNav>
+            {show && <ModalBackground onClick={() => setShow(!show)}/>}
+            {isMobile ? 
+            <Section>
+                <MobileMenu fill={"#bd00a4"} onClick={() => setShow(!show)}/>
+                <NavItem href="/">
+                    <Logo src={logo} alt="logo" width={150} />
+                </NavItem>
+                <MobileMenu />
+            </Section>
+            :
+            <>
             <Section>
             {!isHome && <NavItem href="/">
                 <Logo src={logo} alt="logo" width={150} />
@@ -30,35 +72,21 @@ export default function Navbar(props) {
                 TOUR
             </NavItem>
             <NavItem href="/merch">
-                <span>M</span>
-                <span>E</span>
-                <span>R</span>
-                <span>C</span>
-                <span>H</span>
+                MERCH
             </NavItem>
             <NavItem href="/alter-egos">
                 <Word>
-                <span>A</span>
-                <span>L</span>
-                <span>T</span>
-                <span>E</span>
-                <span>R</span>
+                    ALTER
                 </Word>
                 <Word>
-                <span>E</span>
-                <span>G</span>
-                <span>O</span>
-                <span>S</span>
+                    EGOS
                 </Word>
             </NavItem>
             <NavItem href="/about">
-                <span>A</span>
-                <span>B</span>
-                <span>O</span>
-                <span>U</span>
-                <span>T</span>
+                ABOUT
             </NavItem>
             </Section>
+            </>}
         </WrapNavBar>
   )
 }
@@ -78,6 +106,13 @@ const Section = styled.div`
     display: flex;
     font-size: 1.5rem;
     margin: ${props => props.home ? "1.3rem 0" : "0"};
+
+    @media (max-width: 768px){
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+        background-color: rgba(245, 158, 226, 0.50);
+    }
 `;
 
 const Logo = styled(Image)`
@@ -93,6 +128,7 @@ const NavItem = styled(Link)`
     justify-content: center;
     cursor: pointer;
     color: #000;
+    text-decoration: none;
     &:hover {
         color: #430FFD;
         transition: all 0.5s ease;
@@ -103,4 +139,52 @@ const NavItem = styled(Link)`
 const Word = styled.div`
     display: flex;
     margin: 0 0.2rem;
+`;
+
+const MobileMenu = styled(HamburgerMenu)`
+    z-index: 3;
+`;
+
+const SlideInNav = styled.div`
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: ${props => props.show ? "75vw" : "0"};
+    background-color: rgb(245, 158, 226);
+    animation: 0.5s slide-right ease-out;
+    overflow-x: hidden;
+    transition: 0.5s;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    @keyframes slide-right {
+        0% {
+          margin-left: -100%;
+        }
+        100% {
+          margin-left: 0%;
+        }
+      }
+`;
+
+const ModalBackground = styled.div`
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.25);
+    animation: 0.5s fade-in ease-out;
+    @keyframes fade-in {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+    }
 `;
