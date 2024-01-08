@@ -13,7 +13,6 @@ import L from 'assets/L.svg';
 import I2 from 'assets/I2.svg';
 import N from 'assets/N.svg';
 import G from 'assets/G.svg';
-import multipleStars from 'assets/multipleStars.png';
 import Image from 'next/image';
 import StarBackground from 'components/StarBackground';
 
@@ -26,7 +25,6 @@ export default function index() {
       <title>mickey darling</title>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
-    <Image src={multipleStars} layout="fill" objectFit="cover" alt="stars" priority />
     <Announcement>
       <p>ST. LOUIS // NEW YEARS EVE WITH CHERUB</p>
     </Announcement>

@@ -44,3 +44,11 @@ export const BusFill = (props) => (
   </g>
 </Svg>
 );
+
+export const HamburgerMenu = (props) => (
+  <Svg viewBox="0 0 12 12" width="40px" height="40px" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <rect fill={props.fill} height="1" width="11" x="0.5" y="5.5"/>
+    <rect fill={props.fill} height="1" width="11" x="0.5" y="2.5"/>
+    <rect fill={props.fill} height="1" width="11" x="0.5" y="8.5"/>
+</Svg>
+);

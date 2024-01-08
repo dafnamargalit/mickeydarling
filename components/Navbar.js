@@ -134,6 +134,9 @@ const NavItem = styled(Link)`
         transition: all 0.5s ease;
     }
     z-index: 2;
+    @media (max-width: 768px){
+        font-size: 1.5rem;
+    }
 `;
 
 const Word = styled.div`

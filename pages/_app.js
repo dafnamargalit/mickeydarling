@@ -1,7 +1,8 @@
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import Navbar from "components/Navbar";
 import localFont from 'next/font/local'
- 
+import multipleStars from 'assets/multipleStars.png';
+import Image from 'next/image';
 // Font files can be colocated inside of `pages`
 const myFont = localFont({ src: './dadhand.ttf' })
  
@@ -37,6 +38,7 @@ function MyApp({ Component, pageProps }) {
       <ThemeProvider theme={theme}>
         <main className={myFont.className}>
         <Navbar />
+        <Image src={multipleStars} layout="fill" objectFit="cover" alt="stars" priority />
         <Component {...pageProps} />
         </main>
       </ThemeProvider>

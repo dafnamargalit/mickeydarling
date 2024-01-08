@@ -76,6 +76,13 @@ z-index: 0;
 position: absolute;
 left: -2.5vw;
 transform: scaleX(1.1);
+
+animation: fadein 2s;
+
+@keyframes fadein {
+    0% { opacity: 0; }
+    100%   { opacity: 1; }
+}
 `;
 
 const TourBus = styled(Bus)`
@@ -127,6 +134,13 @@ const TourWrap = styled.div`
     height: 100vh;
     background: rgba(245, 158, 226, 0.70);
   }
+
+  animation: fadein 2s;
+
+@keyframes fadein {
+    0% { opacity: 0; }
+    100%   { opacity: 1; }
+}
 `;
 
 const ListItem = styled.div`
