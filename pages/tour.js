@@ -7,6 +7,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import tourTitle from 'assets/tour.png';
 import Script from 'next/script'
+import { Head } from 'next/document';
+import { TourList } from 'components/TourList';
 
 export default function Tour() {
   var [busPathLength, setBusPathLength] = useState(null);
@@ -20,6 +22,7 @@ export default function Tour() {
 
 
   return (
+      <>
       <Container>
         <TourBus pathLength={busPathLength} />
         <BusColor />
@@ -27,10 +30,12 @@ export default function Tour() {
         <Header/> 
         {/* TODO: check if list is loaded */}
           <TourWrap>
-            <div id="seated-55fdf2c0" data-artist-id="e1796c0a-1afe-4112-bb74-6059df5e2e8b" data-css-version="3"/>
-            <Script src="https://widget.seated.com/app.js" />
+            <TourList />
+{/* <            <Script src="/static/script.js" />
+            <div id="seated-55fdf2c0" data-artist-id="e1796c0a-1afe-4112-bb74-6059df5e2e8b" data-css-version="3"/> */}
           </TourWrap>
       </Container>
+      </>
   );
 }
 
