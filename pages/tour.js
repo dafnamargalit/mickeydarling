@@ -6,8 +6,6 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import tourTitle from 'assets/tour.png';
-import Script from 'next/script'
-import { Head } from 'next/document';
 import { TourList } from 'components/TourList';
 
 export default function Tour() {

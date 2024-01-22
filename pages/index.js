@@ -14,7 +14,6 @@ import I2 from 'assets/I2.svg';
 import N from 'assets/N.svg';
 import G from 'assets/G.svg';
 import Image from 'next/image';
-import StarBackground from 'components/StarBackground';
 
 export default function index() {
 
