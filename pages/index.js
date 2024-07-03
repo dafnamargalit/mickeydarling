@@ -14,58 +14,72 @@ import I2 from 'assets/I2.svg';
 import N from 'assets/N.svg';
 import G from 'assets/G.svg';
 import Image from 'next/image';
+import Layout from 'components/Layout';
+import { useState, useEffect } from 'react';
 
 export default function index() {
+  const [width, setWidth] = useState(0);
+  function handleWindowResize() {
+      setWidth(window.innerWidth);
+  };
 
+  useEffect(() => {
+      setWidth(window.innerWidth);
+      window.addEventListener('resize', handleWindowResize);
+  }, width);
+
+  const isMobile = width <= 768;
 
   return (
-    <Container>
-    <Head>
-      <title>mickey darling</title>
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    </Head>
-    <Announcement>
-      <p>ST. LOUIS // NEW YEARS EVE WITH CHERUB</p>
-    </Announcement>
-    <DesktopLogo>
-      <Row>
-          <Letters src={M} width="11vh" alt="M" priority />
-          <Letters src={I} anim="true" width="5vh" alt="I" priority />
-          <Letters src={C} width="6vh" alt="C" priority />
-          <Letters src={K} anim="true" alt="K" priority />
-          <Letters src={E} width="7vh" alt="E" priority />
-          <Letters src={Y} anim="true" width="8vh" alt="Y" priority />
-      </Row>
-      <Row>
-          <Letters src={D} width="6vh" alt="D" priority />
-          <Letters src={A} anim="true" alt="A" priority />
-          <Letters src={R} alt="R" priority />
-          <Letters src={L} anim="true" alt="L" priority />
-          <Letters src={I2} width="6vh" alt="I" priority />
-          <Letters src={N} anim="true" alt="N" priority />
-          <Letters src={G} alt="G" priority />
-      </Row>
-    </DesktopLogo>
-    <MobileLogo>
-      <Row>
-          <Letters src={M} width="5vh" alt="M" priority />
-          <Letters src={I} anim="true" width="2vh" alt="I" priority/>
-          <Letters src={C} width="3vh" alt="C" priority />
-          <Letters src={K} anim="true" alt="K" width="5vh" priority/>
-          <Letters src={E} width="4vh" alt="E" priority />
-          <Letters src={Y} anim="true" width="5vh" alt="Y" priority />
-      </Row>
-      <Row>
-          <Letters src={D} width="3vh" alt="D" priority />
-          <Letters src={A} anim="true" width="5vh" alt="A" priority />
-          <Letters src={R} alt="R" width="5vh" priority />
-          <Letters src={L} anim="true" alt="L" width="5vh" priority />
-          <Letters src={I2} width="3vh" alt="I" priority />
-          <Letters src={N} anim="true" alt="N" width="5vh" priority />
-          <Letters src={G} alt="G" width="5vh" priority />
-      </Row>
-    </MobileLogo>
-  </Container>
+    <Layout isMobile={isMobile}>
+      <Container>
+      <Head>
+        <title>mickey darling</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <Announcement>
+        <p>ST. LOUIS // NEW YEARS EVE WITH CHERUB</p>
+      </Announcement>
+      <DesktopLogo>
+        <Row>
+            <Letters src={M} width="11vh" alt="M" priority />
+            <Letters src={I} anim="true" width="5vh" alt="I" priority />
+            <Letters src={C} width="6vh" alt="C" priority />
+            <Letters src={K} anim="true" alt="K" priority />
+            <Letters src={E} width="7vh" alt="E" priority />
+            <Letters src={Y} anim="true" width="8vh" alt="Y" priority />
+        </Row>
+        <Row>
+            <Letters src={D} width="6vh" alt="D" priority />
+            <Letters src={A} anim="true" alt="A" priority />
+            <Letters src={R} alt="R" priority />
+            <Letters src={L} anim="true" alt="L" priority />
+            <Letters src={I2} width="6vh" alt="I" priority />
+            <Letters src={N} anim="true" alt="N" priority />
+            <Letters src={G} alt="G" priority />
+        </Row>
+      </DesktopLogo>
+      <MobileLogo>
+        <Row>
+            <Letters src={M} width="5vh" alt="M" priority />
+            <Letters src={I} anim="true" width="2vh" alt="I" priority/>
+            <Letters src={C} width="3vh" alt="C" priority />
+            <Letters src={K} anim="true" alt="K" width="5vh" priority/>
+            <Letters src={E} width="4vh" alt="E" priority />
+            <Letters src={Y} anim="true" width="5vh" alt="Y" priority />
+        </Row>
+        <Row>
+            <Letters src={D} width="3vh" alt="D" priority />
+            <Letters src={A} anim="true" width="5vh" alt="A" priority />
+            <Letters src={R} alt="R" width="5vh" priority />
+            <Letters src={L} anim="true" alt="L" width="5vh" priority />
+            <Letters src={I2} width="3vh" alt="I" priority />
+            <Letters src={N} anim="true" alt="N" width="5vh" priority />
+            <Letters src={G} alt="G" width="5vh" priority />
+        </Row>
+      </MobileLogo>
+    </Container>  
+  </Layout>
 );
 }
 
@@ -76,7 +90,7 @@ const Container = styled.div`
   flex-direction: column;
   height: 100vh;
   width: 100vw;
-  overflow: none;
+  overflow: hidden;
 `;
 
 const pulse = keyframes`

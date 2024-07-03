@@ -4,7 +4,7 @@ import styled, {keyframes} from 'styled-components';
 import Image from 'next/image';
 import logo from 'public/logo.png';
 import { useRouter } from 'next/router';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { HamburgerMenu } from 'assets';
 
 export default function Navbar(props) {
@@ -53,11 +53,11 @@ export default function Navbar(props) {
             </SlideInNav>
             {show && <ModalBackground onClick={() => setShow(!show)}/>}
             {isMobile ? 
-            <Section>
+            <Section home={isHome}>
                 <MobileMenu fill={"#bd00a4"} onClick={() => setShow(!show)}/>
-                <NavItem href="/">
+                {!isHome && <NavItem href="/">
                     <Logo src={logo} alt="logo" width={150} />
-                </NavItem>
+                </NavItem>}
                 <MobileMenu />
             </Section>
             :
@@ -105,13 +105,13 @@ const WrapNavBar = styled.div`
 const Section = styled.div`
     display: flex;
     font-size: 1.5rem;
-    margin: ${props => props.home ? "1.3rem 0" : "0"};
+    margin: ${props => props.home ? "1.3rem" : " 0 1.3rem"};
 
     @media (max-width: 768px){
         align-items: center;
-        justify-content: space-evenly;
-        width: 100%;
-        background-color: rgba(245, 158, 226, 0.50);
+        justify-content: ${props => props.home ? "" : "space-between"};
+        width: 100vw;
+        background-color: ${props => props.home ? "none" : "rgba(245, 158, 226, 0.50)"};
     }
 `;
 

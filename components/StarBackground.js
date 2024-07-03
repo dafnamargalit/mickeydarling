@@ -18,11 +18,13 @@ export default function StarBackground(){
 
     useEffect(() => {
         if(windowWidth > 768) {
-            const positions = generateRandomPositions(12, windowWidth, windowHeight, 60);
-            setlittleStarPositions(positions);
-            const bigStarPositions = generateRandomPositions(12, windowWidth, windowHeight, 80);
-            setBigStarPositions(bigStarPositions);
-        }}, [windowWidth, windowHeight]);
+            const positions = generateRandomPositions(24, windowWidth, windowHeight, 90);
+            console.log(positions);
+            setlittleStarPositions(positions.slice(0, 12));
+            setBigStarPositions(positions.slice(13, 24));
+        }
+        
+    }, [windowWidth, windowHeight]);
 
     function generateRandomPositions(numImages, containerWidth, containerHeight, imageWidth) {
         const positions = [];
@@ -99,6 +101,6 @@ const LittleStar = styled(Image)`
 `;
 
 const BigStar = styled(Image)`
-    width: 80px;
+    width: 100px;
     height: auto;
 `;

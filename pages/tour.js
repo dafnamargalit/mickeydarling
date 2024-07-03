@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import tourTitle from 'assets/tour.png';
 import { TourList } from 'components/TourList';
+import Layout from 'components/Layout';
 
 export default function Tour() {
   var [busPathLength, setBusPathLength] = useState(null);
@@ -20,7 +21,7 @@ export default function Tour() {
 
 
   return (
-      <>
+    <Layout>
       <Container>
         <TourBus pathLength={busPathLength} />
         <BusColor />
@@ -29,11 +30,9 @@ export default function Tour() {
         {/* TODO: check if list is loaded */}
           <TourWrap>
             <TourList />
-{/* <            <Script src="/static/script.js" />
-            <div id="seated-55fdf2c0" data-artist-id="e1796c0a-1afe-4112-bb74-6059df5e2e8b" data-css-version="3"/> */}
           </TourWrap>
       </Container>
-      </>
+  </Layout>
   );
 }
 
@@ -45,6 +44,7 @@ const Container = styled.div`
     height: 100vh;
     top: 0;
     overflow: hidden;
+    width: 100vw;
 `;
 
 const Header = styled.div`

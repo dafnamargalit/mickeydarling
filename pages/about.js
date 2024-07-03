@@ -1,11 +1,14 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { AboutTitle } from 'assets';
 import Image from 'next/image';
 import aboutPhoto from 'assets/aboutmickey.jpeg';
 import tape from 'assets/tape.webp';
+import Layout from 'components/Layout';
 
 export default function About() {
+
   return (
+    <Layout>
       <Container id="about">
         <AboutTitleStyled />
         <Content>
@@ -21,6 +24,7 @@ What started off as a joke early fall 2018, Skyler Molina challenged Austin Medr
         </AboutDescription>
         </Content>
       </Container>
+    </Layout>
   );
 }
 
@@ -30,9 +34,10 @@ const Container = styled.div`
     justify-content: center;
     flex-direction: column;
     height: 100vh;
-
+    overflow: hidden;
     @media (max-width: 768px) {
       height: 100%;
+      width: 100vw;
     }
 `;
 

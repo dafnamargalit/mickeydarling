@@ -3,6 +3,9 @@ import Navbar from "components/Navbar";
 import localFont from 'next/font/local'
 import multipleStars from 'assets/multipleStars.png';
 import Image from 'next/image';
+import { AnimatePresence } from 'framer-motion'
+import StarBackground from "components/StarBackground";
+
 // Font files can be colocated inside of `pages`
 const myFont = localFont({ src: './dadhand.ttf' })
  
@@ -12,12 +15,19 @@ html{
   background: #f59ee2;
   height: 100%;
   padding: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body{
   background-color:#f59ee2;
   min-height:100vh;
   margin:0;
+  background: url('/stars2.png') repeat;
+  background-size: 1400px; 
+  background-position: 0 0;
+  overflow-x: hidden;
+  position: relative;
 }
 
 a {
@@ -38,8 +48,10 @@ function MyApp({ Component, pageProps }) {
       <ThemeProvider theme={theme}>
         <main className={myFont.className}>
         <Navbar />
-        <Image src={multipleStars} layout="fill" objectFit="cover" alt="stars" priority />
-        <Component {...pageProps} />
+        {/* <Image src={multipleStars} layout="fill" objectFit="cover" alt="stars" priority /> */}
+        <AnimatePresence mode="wait" initial={false}>
+          <Component {...pageProps} />
+        </AnimatePresence>
         </main>
       </ThemeProvider>
     </>
