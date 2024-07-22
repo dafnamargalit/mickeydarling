@@ -74,7 +74,7 @@ export default function Navbar(props) {
             <NavItem href="/merch">
                 MERCH
             </NavItem>
-            <NavItem href="/alter-egos">
+            <NavItem href="/alteregos">
                 <Word>
                     ALTER
                 </Word>
