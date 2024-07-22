@@ -68,13 +68,13 @@ export default function Navbar(props) {
             </NavItem>}
             </Section>
             <Section home="true" >
-           <NavItem href="/tour">
+           <NavItem href="/tour" isCurrentPage={router.pathname === "/tour"} >
                 TOUR
             </NavItem>
-            <NavItem href="/merch">
+            <NavItem href="/merch" isCurrentPage={router.pathname === "/merch"} >
                 MERCH
             </NavItem>
-            <NavItem href="/alteregos">
+            <NavItem href="/alteregos" isCurrentPage={router.pathname === "/alteregos"} >
                 <Word>
                     ALTER
                 </Word>
@@ -82,7 +82,7 @@ export default function Navbar(props) {
                     EGOS
                 </Word>
             </NavItem>
-            <NavItem href="/about">
+            <NavItem href="/about" isCurrentPage={router.pathname === "/about"} >
                 ABOUT
             </NavItem>
             </Section>
@@ -127,7 +127,7 @@ const NavItem = styled(Link)`
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    color: #000;
+    color: ${props => props.isCurrentPage ? "#430FFD" : "#000"};
     text-decoration: none;
     &:hover {
         color: #430FFD;
