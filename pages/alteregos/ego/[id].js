@@ -64,6 +64,25 @@ export default function AlterEgo() {
                 </AboutCard>
             </Content>
             </Container>
+            <MobileContent>
+                <AboutCard
+                    animate={{ scale: [1,1.1,1] }}
+                    transition={{ duration: 1.5 }}
+                    >
+                        <CardHeader/>
+                        <CardContent>
+                    <h1>{ego?.name}</h1>
+                    <p>{ego?.about}</p>
+                    {ego?.socials && <SocialFooter {...ego?.socials} />}
+                    </CardContent>
+                </AboutCard>
+                <VideoWrap
+                    animate={{ opacity: [0,1] }}
+                    transition={{ duration: 2 }}
+                >
+                <YoutubeEmbed embedId={ego?.embed} />
+                </VideoWrap>
+            </MobileContent>
         </Layout>
     )
 }
@@ -74,6 +93,9 @@ const Container = styled.div`
     width: 100vw;
     position: relative;
     overflow: hidden;
+    @media (max-width: 768px){
+        display: none;
+    }
 `;
 
 const VideoWrap = styled(motion.div)`
@@ -83,6 +105,7 @@ const VideoWrap = styled(motion.div)`
     box-shadow: 0 0 10px #ffdd00, 0 0 20px #ffdd00, 0 0 30px #ffdd00;
     @media (max-width: 600px){
         width: 90vw;
+        margin-top: 5vh;
     }
 `;
 
@@ -94,6 +117,17 @@ const Content = styled.div`
     width: 90vw;
 `;
 
+const MobileContent = styled.div`
+    display: none;
+    @media (max-width: 768px){
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100vw;
+    }
+`;
 
 const AboutCard = styled(motion.div)`
     display: flex;
@@ -104,8 +138,13 @@ const AboutCard = styled(motion.div)`
     border: 1px solid #ffdd00;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     margin-right: 15vw;
-
+    @media (max-width: 768px){
+        width: 90vw;
+        height: 90vw;
+        margin: 0;
+    }
 `;
+
 
 const CardHeader = styled.div`
     background-color: #fae94b;

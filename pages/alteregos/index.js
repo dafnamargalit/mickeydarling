@@ -56,17 +56,17 @@ export default function AlterEgos() {
       </DesktopLogo>
       <MobileLogo>
         <Row>
-            <Letters src={A} width="11vh" alt="M" priority />
-            <Letters src={L} anim="true" width="5vh" alt="I" priority />
-            <Letters src={T} width="6vh" alt="C" priority />
-            <Letters src={E} anim="true" alt="K" priority />
-            <Letters src={R} width="7vh" alt="E" priority />
+            <Letters src={A} width="5vh" alt="A" priority />
+            <Letters src={L} anim="true" width="3vh" alt="L" priority />
+            <Letters src={T} width="4vh" alt="T" priority />
+            <Letters src={E} anim="true "width="4vh" alt="E" priority />
+            <Letters src={R} width="5vh" alt="R" priority />
         </Row>
         <Row>
-            <Letters src={Ep} width="6vh" alt="D" priority />
-            <Letters src={G} anim="true" alt="A" priority />
-            <Letters src={O} alt="R" priority />
-            <Letters src={S} anim="true" alt="L" priority />
+            <Letters src={Ep} width="4vh" alt="E" priority />
+            <Letters src={G} anim="true" width="4vh"  alt="G" priority />
+            <Letters src={O} alt="O" width="4vh" priority />
+            <Letters src={S} anim="true" width="4vh"  alt="S" priority />
         </Row>
       </MobileLogo>
         <Header/> 
@@ -88,6 +88,9 @@ const Container = styled.div`
     height: 100vh;
     overflow: hidden;
     width: 100vw;
+    @media (max-width: 768px) {
+      overflow: scroll;
+    }
 `;
 
 const Header = styled.div`
@@ -97,7 +100,7 @@ const Header = styled.div`
     width: 100vw;
 
     @media (max-width: 768px) {
-        height: 33vh;
+        height: 5vh;
     }
 `;
 
@@ -137,6 +140,10 @@ const WrapAlterEgos = styled.div`
   align-items: center;
   justify-content: space-evenly;
   flex-direction: row;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    margin-top: 5vh;
+  }
 `;
 
 
@@ -145,6 +152,9 @@ display: flex;
 align-items: center;
 justify-content: center;
 margin: 1em;
+@media (max-width: 768px) {
+  margin: 0;
+}
 `;
 
 const DesktopLogo = styled.div`
@@ -165,6 +175,7 @@ display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 10vh;
 }
 `;
 
