@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import SocialFooter from 'components/SocialFooter';
+import Head from 'next/head';
 
 export default function AlterEgo() {
     const router = useRouter();
@@ -30,6 +31,9 @@ export default function AlterEgo() {
 
     return (
         <Layout>
+            <Head>
+            <title>Mickey Darling – {ego?.name}</title>
+            </Head>
             <Container>
                 <TVDrawing pathLength={pathLength} />
             <Header>

@@ -5,6 +5,7 @@ import multipleStars from 'assets/multipleStars.png';
 import Image from 'next/image';
 import { AnimatePresence } from 'framer-motion'
 import StarBackground from "components/StarBackground";
+import Head from "next/head";
 
 // Font files can be colocated inside of `pages`
 const myFont = localFont({ src: './dadhand.ttf' })
@@ -46,6 +47,11 @@ function MyApp({ Component, pageProps }) {
     <>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
+        <Head>
+          <title>Mickey Darling</title>
+          <meta name="description" content="Mickey Darling" />
+          <link rel="icon" href="/mini-logo.png" />
+        </Head>
         <main className={myFont.className}>
         <Navbar />
         {/* <Image src={multipleStars} layout="fill" objectFit="cover" alt="stars" priority /> */}

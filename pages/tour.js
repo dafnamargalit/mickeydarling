@@ -8,6 +8,7 @@ import Link from 'next/link';
 import tourTitle from 'assets/tour.png';
 import { TourList } from 'components/TourList';
 import Layout from 'components/Layout';
+import Head from 'next/head';
 
 export default function Tour() {
   var [busPathLength, setBusPathLength] = useState(null);
@@ -22,6 +23,9 @@ export default function Tour() {
 
   return (
     <Layout>
+      <Head>
+        <title>Mickey Darling – Tour</title>
+      </Head>
       <Container>
         <TourBus pathLength={busPathLength} />
         <BusColor />

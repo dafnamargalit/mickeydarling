@@ -17,6 +17,7 @@ import Ep from 'assets/alteregos/Ep.svg';
 import G from 'assets/alteregos/G.svg';
 import O from 'assets/alteregos/O.svg';
 import S from 'assets/alteregos/S.svg';
+import Head from 'next/head';
 
 
 export default function AlterEgos() {
@@ -33,6 +34,9 @@ export default function AlterEgos() {
 
   return (
     <Layout>
+       <Head>
+          <title>Mickey Darling – Alter Egos</title>
+        </Head>
       <Container>
         <GuitarDrawing pathLength={pathLength} />
         <DesktopLogo>

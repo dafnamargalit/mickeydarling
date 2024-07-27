@@ -5,6 +5,7 @@ import aboutPhoto from 'assets/aboutmickey.jpeg';
 import tape from 'assets/tape.webp';
 import Layout from 'components/Layout';
 import { useEffect, useState } from 'react';
+import Head from 'next/head';
 
 export default function About() {
 
@@ -18,6 +19,9 @@ export default function About() {
   });
   return (
     <Layout>
+      <Head>
+        <title>Mickey Darling – About</title>
+      </Head>
       <Container id="about">
         <HeartDrawing pathLength={pathLength}/>
         <AboutTitleStyled />
