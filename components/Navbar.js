@@ -47,7 +47,7 @@ export default function Navbar(props) {
                 <NavItem href="/alter-egos" onClick={() => setShow(!show)}>
                     ALTER EGOS  
                 </NavItem>
-                <NavItem href="/merch" onClick={() => setShow(!show)}>
+                <NavItem href="https://sexiest-boy-band.myshopify.com/" onClick={() => setShow(!show)}>
                    MERCH
                 </NavItem>
             </SlideInNav>
@@ -82,7 +82,7 @@ export default function Navbar(props) {
                     EGOS
                 </Word>
             </NavItem>
-            <NavItem href="/merch" isCurrentPage={router.pathname === "/merch"} >
+            <NavItem href="https://sexiest-boy-band.myshopify.com/" isCurrentPage={router.pathname === "/merch"} >
                 MERCH
             </NavItem>
             </Section>

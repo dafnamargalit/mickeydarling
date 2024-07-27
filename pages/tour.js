@@ -27,7 +27,6 @@ export default function Tour() {
         <BusColor />
         <TourTitle src={tourTitle} alt="tour" />
         <Header/> 
-        {/* TODO: check if list is loaded */}
           <TourWrap>
             <TourList />
           </TourWrap>
