@@ -127,10 +127,10 @@ const NavItem = styled(Link)`
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    color: ${props => props.isCurrentPage ? "#430FFD" : "#000"};
+    color: ${props => props.isCurrentPage ? "#bd00a4" : "#000"};
     text-decoration: none;
     &:hover {
-        color: #430FFD;
+        color: #bd00a4;
         transition: all 0.5s ease;
     }
     z-index: 2;
