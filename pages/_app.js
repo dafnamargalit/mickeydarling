@@ -2,10 +2,10 @@ import { createGlobalStyle, ThemeProvider } from "styled-components";
 import Navbar from "components/Navbar";
 import localFont from 'next/font/local'
 import multipleStars from 'assets/multipleStars.png';
-import Image from 'next/image';
-import { AnimatePresence } from 'framer-motion'
-import StarBackground from "components/StarBackground";
+import { AnimatePresence } from 'framer-motion';
 import Head from "next/head";
+import SocialFooter from "components/SocialFooter";
+import styled from "styled-components";
 
 // Font files can be colocated inside of `pages`
 const myFont = localFont({ src: './dadhand.ttf' })
@@ -41,6 +41,13 @@ const theme = {
     primary: "#f59ee2",
   },
 };
+
+const socials = {
+    instagram: "mickeydarling42069",
+    spotify: "https://open.spotify.com/artist/3uwUtL5kPSO2mpOhU4SiWz?si=nOf5RC80QbqfCghgv5s1sA",
+    youtube: "https://www.youtube.com/channel/UCIY611OhBW293UfYHLX1jQw",
+    twitter: "https://x.com/thiccydarling"
+}
  
 function MyApp({ Component, pageProps }) {
   return (
@@ -59,9 +66,27 @@ function MyApp({ Component, pageProps }) {
           <Component {...pageProps} />
         </AnimatePresence>
         </main>
+        <Footer>
+        <SocialFooter {...socials} />
+        </Footer>
       </ThemeProvider>
     </>
   );
 }
+
+const Footer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 10vh;
+
+  z-index: 1000;
+  @media (max-width: 768px) {
+    background-color: rgba(245, 158, 226, 0.50);
+  };
+`;
  
 export default MyApp;
