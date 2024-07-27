@@ -41,14 +41,14 @@ export default function Navbar(props) {
                 <NavItem href="/tour" onClick={() => setShow(!show)}>
                     TOUR
                 </NavItem>
-                <NavItem href="/merch" onClick={() => setShow(!show)}>
-                   MERCH
+                <NavItem href="/about" onClick={() => setShow(!show)}>
+                    ABOUT
                 </NavItem>
                 <NavItem href="/alter-egos" onClick={() => setShow(!show)}>
                     ALTER EGOS  
                 </NavItem>
-                <NavItem href="/about" onClick={() => setShow(!show)}>
-                    ABOUT
+                <NavItem href="/merch" onClick={() => setShow(!show)}>
+                   MERCH
                 </NavItem>
             </SlideInNav>
             {show && <ModalBackground onClick={() => setShow(!show)}/>}
@@ -71,8 +71,8 @@ export default function Navbar(props) {
            <NavItem href="/tour" isCurrentPage={router.pathname === "/tour"} >
                 TOUR
             </NavItem>
-            <NavItem href="/merch" isCurrentPage={router.pathname === "/merch"} >
-                MERCH
+            <NavItem href="/about" isCurrentPage={router.pathname === "/about"} >
+                ABOUT
             </NavItem>
             <NavItem href="/alteregos" isCurrentPage={router.pathname === "/alteregos"} >
                 <Word>
@@ -82,8 +82,8 @@ export default function Navbar(props) {
                     EGOS
                 </Word>
             </NavItem>
-            <NavItem href="/about" isCurrentPage={router.pathname === "/about"} >
-                ABOUT
+            <NavItem href="/merch" isCurrentPage={router.pathname === "/merch"} >
+                MERCH
             </NavItem>
             </Section>
             </>}

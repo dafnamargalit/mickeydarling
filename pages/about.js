@@ -1,15 +1,25 @@
 import styled from 'styled-components';
-import { AboutTitle } from 'assets';
+import { AboutTitle, Heart } from 'assets';
 import Image from 'next/image';
 import aboutPhoto from 'assets/aboutmickey.jpeg';
 import tape from 'assets/tape.webp';
 import Layout from 'components/Layout';
+import { useEffect, useState } from 'react';
 
 export default function About() {
 
+  var [pathLength, setPathLength] = useState(null);
+
+  useEffect(() => {
+    var path = document.querySelector('.Heart');
+    if (path){
+      setPathLength(path.getTotalLength());
+    }
+  });
   return (
     <Layout>
       <Container id="about">
+        <HeartDrawing pathLength={pathLength}/>
         <AboutTitleStyled />
         <Content>
         <WrapPhoto>
@@ -35,6 +45,7 @@ const Container = styled.div`
     flex-direction: column;
     height: 100vh;
     overflow: hidden;
+    position: relative;
     @media (max-width: 768px) {
       height: 100%;
       width: 100vw;
@@ -88,11 +99,10 @@ const AboutPhoto = styled(Image)`
 
 const AboutDescription = styled.div`
     display: flex;
-    width: 40vw;
+    width: 45vw;
     margin-left: 5vw;
     text-align: center;
-    font-size: 1.25rem;
-    background: rgba(245, 158, 226, 0.50);
+    font-size: 1.15rem;
 
     @media (max-width: 768px) {
       width: 90%;
@@ -123,4 +133,38 @@ const Tape2 = styled(Image)`
     @media (max-width: 768px) {
       display: none;
   }
+`;
+
+const HeartDrawing = styled(Heart)`
+width: 100vw;
+height: 100vh;
+z-index: -1;
+position: absolute;
+left: 3vw;
+transform: scaleX(1.1) translateY(40vh);
+
+& path {
+    fill: none;
+    stroke: #000;
+    stroke-width: 3px;
+    stroke-dasharray: ${props => props.pathLength + ' ' + props.pathLength};
+    stroke-dashoffset: ${props => -props.pathLength}; 
+    stroke-linecap: round;
+    stroke-miter-limit: 10;
+    animation: dasha 2s linear;   
+    animation-fill-mode: forwards;
+    keypoints: 1, 0;
+    keytimes: 0, 1;
+}
+
+@keyframes dasha {
+    100% {
+        stroke-dashoffset: ${props => -props.pathLength*2};
+    }
+
+  @media (max-width: 768px) {
+    h
+    margin-top: 0vh;
+  }
+}
 `;

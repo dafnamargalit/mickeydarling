@@ -103,7 +103,7 @@ transform: scaleX(1.1);
     stroke-dashoffset: ${props => -props.pathLength}; 
     stroke-linecap: round;
     stroke-miter-limit: 10;
-    animation: dash 2s linear;   
+    animation: dash 2.5s linear;   
     animation-fill-mode: forwards;
     keypoints: 1, 0;
     keytimes: 0, 1;

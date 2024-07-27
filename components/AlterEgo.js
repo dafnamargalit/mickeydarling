@@ -1,48 +1,55 @@
-import { IconLeftArrow } from 'icons';
+import Image from 'next/image';
 import styled from 'styled-components';
-
+import {motion} from 'framer-motion';
 export default function AlterEgo(props) {
-    const { data } = props;
+    const { name, image } = props;
 
     return (
-        <Container {...props}>
-            <BackButtonWrap onClick={props.onClose}>
-                <BackButton />
-            </BackButtonWrap>
-            <p>{data?.name}</p>
+        <Container>
+            <motion.div
+                initial={{ scale: 0, opacity: 0}}
+                animate={{ scale: 1, opacity: 1}}
+                transition={{ duration: 1 }}
+                  whileHover={{
+                    scale: 1.2,
+                    transition: { duration: 1 },
+                    rotate: [0, 0, 270, 270, 0]
+                  }}
+                  >
+            <Avatar src={image} 
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{ width: '100%', height: 'auto' }} 
+            />
+            </motion.div>
+            <Title>
+            {name}
+            </Title>
         </Container>
     )
 }
 
 const Container = styled.div`
-    background-color: "rgba(46, 46, 46, 0.301)";
-    height: 100vh;
-    width: 100vw;
-    position: absolute;
-    z-index: 10009;
-    justify-content: center;
+    height: 30vh;
+    width: 30vh;
+    margin: 1em;
+    display: flex;
     align-items: center;
-    display: ${props => props.show ? 'flex' : 'none'};
+    justify-content: center;
+    flex-direction: column;
+
+`;      
+
+const Avatar = styled(Image)`
+    border-radius: 50%;
+    border: 4px solid;
+    border-color: #FFD04F;
 `;
 
-const BackButtonWrap = styled.div`
-  width: 50px;
-  position: absolute;
-  top: 30px;
-  left: 0;
-  margin: 1em;
-  z-index: 10002;
-`;
-
-const BackButton = styled(IconLeftArrow)`
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    &:hover {
-        stroke: "#e60073";
-    }
-    @media (max-width: 800px) {
-        width: 30px;
-        height: 30px;
-    }
+const Title = styled.p`
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #000;
 `;

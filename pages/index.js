@@ -16,6 +16,7 @@ import G from 'assets/G.svg';
 import Image from 'next/image';
 import Layout from 'components/Layout';
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function index() {
   const [width, setWidth] = useState(0);
@@ -37,8 +38,8 @@ export default function index() {
         <title>mickey darling</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Announcement>
-        <p>ST. LOUIS // NEW YEARS EVE WITH CHERUB</p>
+      <Announcement href={"https://patreon.com/mickeydarling"}>
+        SUPPORT US ON PATREON
       </Announcement>
       <DesktopLogo>
         <Row>
@@ -127,7 +128,7 @@ animation:  ${p => p.anim ? pulse : pulse2} 0.5s alternate ease-out;
 
 `;
 
-const Announcement = styled.div`
+const Announcement = styled(Link)`
   background-color: #FFD04F;
   position: absolute;
   top: 200px;
@@ -136,6 +137,11 @@ const Announcement = styled.div`
   justify-content: center;
   border: #000 1px solid;
   width: 300px;
+  color: #000;
+  text-decoration: none;
+  &:link {
+    color: #000;
+  }
   font-size: 1rem;
   padding: 0.5rem;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
