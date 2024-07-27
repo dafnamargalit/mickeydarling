@@ -44,7 +44,7 @@ export default function Navbar(props) {
                 <NavItem href="/about" onClick={() => setShow(!show)}>
                     ABOUT
                 </NavItem>
-                <NavItem href="/alter-egos" onClick={() => setShow(!show)}>
+                <NavItem href="/alteregos" onClick={() => setShow(!show)}>
                     ALTER EGOS  
                 </NavItem>
                 <NavItem href="https://sexiest-boy-band.myshopify.com/" onClick={() => setShow(!show)}>
@@ -130,6 +130,10 @@ const NavItem = styled(Link)`
     color: ${props => props.isCurrentPage ? "#bd00a4" : "#000"};
     text-decoration: none;
     &:hover {
+        color: #bd00a4;
+        transition: all 0.5s ease;
+    }
+    &:touch {
         color: #bd00a4;
         transition: all 0.5s ease;
     }
