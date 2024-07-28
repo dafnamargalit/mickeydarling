@@ -48,6 +48,7 @@ const Container = styled.div`
     top: 0;
     overflow: hidden;
     width: 100vw;
+    position: relative;
 `;
 
 const Header = styled.div`
@@ -139,6 +140,7 @@ const TourWrap = styled.div`
     width: 100vw;
     height: 100vh;
     background: rgba(245, 158, 226, 0.70);
+    margin-bottom: 10vh;
   }
 
   animation: fadein 2s;
@@ -147,43 +149,5 @@ const TourWrap = styled.div`
     0% { opacity: 0; }
     100%   { opacity: 1; }
 }
-`;
 
-const ListItem = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem;
-  border-bottom: 1px solid #000;
-`;
-
-const ListSection = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  width: 33%;
-`;
-
-const Title = styled.p`
-  margin: 0;
-`;
-
-const TicketButton = styled(Link)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  border-radius: 5px;
-  padding: 0.5rem;
-  border: 1px solid #000;
-  background: #BB88FC;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-
-  &:hover {
-    background: #BB88FD;
-    transform: scale(1.05);
-    transition: all 0.5s ease;
-  }
 `;

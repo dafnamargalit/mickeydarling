@@ -83,8 +83,9 @@ const Footer = styled.div`
   width: 100%;
   height: 10vh;
 
-  z-index: 1000;
+  z-index: 1;
   @media (max-width: 768px) {
+    height: 8vh;
     background-color: rgba(245, 158, 226, 0.50);
   };
 `;

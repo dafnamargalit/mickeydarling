@@ -89,7 +89,7 @@ const Container = styled.div`
     overflow: hidden;
     width: 100vw;
     @media (max-width: 768px) {
-      overflow: scroll;
+      height: 100%;
     }
 `;
 
@@ -100,7 +100,7 @@ const Header = styled.div`
     width: 100vw;
 
     @media (max-width: 768px) {
-        height: 5vh;
+        height: 0vh;
     }
 `;
 
@@ -143,6 +143,7 @@ const WrapAlterEgos = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
     margin-top: 5vh;
+    margin-bottom: 10vh;
   }
 `;
 
