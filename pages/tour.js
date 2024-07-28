@@ -42,11 +42,15 @@ export default function Tour() {
 const Container = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     flex-direction: column;
     height: 100vh;
     width: 100vw;
     overflow: scroll;
+
+    @media (max-width: 768px) {
+      justify-content: space-between;
+    }
 `;
 
 
@@ -55,10 +59,13 @@ const TourTitle = styled(Image)`
     height: auto;
     background: rgba(245, 158, 226);
     z-index: 3;
-    margin-top: 15vh;
-
+    margin-bottom: 5vh;
+    position: absolute;
+    top: 3vh;
     @media (max-width: 768px) {
         width: 200px;
+        position: relative;
+        margin-top: 15vh;
     }
 `;
 
@@ -110,7 +117,6 @@ const TourWrap = styled.div`
   z-index: 2;
   width: 60vw;
   background: rgba(245, 158, 226, 0.70);
-  margin-top: 5vh;
 
   &::-webkit-scrollbar {
     display: none;
@@ -119,7 +125,8 @@ const TourWrap = styled.div`
   scrollbar-width: none;  /* Firefox */
   
   @media (max-width: 768px) {
-    width: 90vw;
-    background: none;
+    width: 100vw;
+    background: rgba(245, 158, 226, 0.70);
+    margin-top: 5vh;
   }
 `;
