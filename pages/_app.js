@@ -85,6 +85,7 @@ const Footer = styled.div`
   backgruond: none;
   @media (max-width: 768px) {
     position: relative;
+    margin-top: 5vh;
     
   }
 `;
