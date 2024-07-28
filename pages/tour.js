@@ -34,7 +34,7 @@ export default function Tour() {
             <TourList />
           </TourWrap>
       </Container>
-      <MobileContainer />
+
   </Layout>
   );
 }
@@ -42,52 +42,23 @@ export default function Tour() {
 const Container = styled.div`
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: column;
     height: 100vh;
     width: 100vw;
     overflow: scroll;
-    @media (max-width: 768px) {
-      background: rgba(245, 158, 226, 0.70);
-      z-index: 2;
-      position: absolute;
-    }
 `;
 
-const MobileContainer = styled.div`
-    display: none;
-    @media (max-width: 768px) {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        width: 100vw;
-    }
-`;
-
-const Header = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-
-    @media (max-width: 768px) {
-        height: 33vh;
-    }
-`;
 
 const TourTitle = styled(Image)`
     width: 300px;
     height: auto;
-    position: absolute;
-    top: 3vh;
     background: rgba(245, 158, 226);
     z-index: 3;
+    margin-top: 15vh;
 
     @media (max-width: 768px) {
         width: 200px;
-        top:13vh;
     }
 `;
 
@@ -139,7 +110,7 @@ const TourWrap = styled.div`
   z-index: 2;
   width: 60vw;
   background: rgba(245, 158, 226, 0.70);
-  margin-top: 10vh;
+  margin-top: 5vh;
 
   &::-webkit-scrollbar {
     display: none;
@@ -149,6 +120,6 @@ const TourWrap = styled.div`
   
   @media (max-width: 768px) {
     width: 90vw;
-    margin-top: 150vh;
     background: none;
+  }
 `;
