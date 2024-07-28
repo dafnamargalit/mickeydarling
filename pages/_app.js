@@ -61,7 +61,6 @@ function MyApp({ Component, pageProps }) {
         </Head>
         <main className={myFont.className}>
         <Navbar />
-        {/* <Image src={multipleStars} layout="fill" objectFit="cover" alt="stars" priority /> */}
         <AnimatePresence mode="wait" initial={false}>
           <Component {...pageProps} />
         </AnimatePresence>
@@ -78,16 +77,16 @@ const Footer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  padding: 2vh 0;
+  z-index: 0;
   position: fixed;
   bottom: 0;
-  width: 100%;
-  height: 10vh;
-
-  z-index: 1;
+  backgruond: none;
   @media (max-width: 768px) {
-    height: 8vh;
-    background-color: rgba(245, 158, 226, 0.50);
-  };
+    position: relative;
+    
+  }
 `;
  
 export default MyApp;

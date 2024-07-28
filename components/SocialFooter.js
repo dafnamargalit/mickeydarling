@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import instagramIcon from 'assets/instagram.svg';
-import spotifyIcon from 'assets/spotify.svg';
-import twitterIcon from 'assets/twitter.svg';
-import youtubeIcon from 'assets/youtube.svg';
+import instagramIcon from 'public/instagram.svg';
+import spotifyIcon from 'public/spotify.svg';
+import twitterIcon from 'public/twitter.svg';
+import youtubeIcon from 'public/youtube.svg';
 import Image from 'next/image';
 import Link from 'next/link';
 

@@ -99,19 +99,18 @@ const WrapNavBar = styled.div`
     align-items: center;
     justify-content: space-between;
     z-index: 1000;
-    width: 100%;
+    width: 100vw;
 `;
 
 const Section = styled.div`
     display: flex;
     font-size: 1.5rem;
-    margin: ${props => props.home ? "1.3rem" : " 0 1.3rem"};
+    padding: ${props => props.home ? "1.3rem" : " 0 1.3rem"};
 
     @media (max-width: 768px){
         align-items: center;
         justify-content: ${props => props.home ? "" : "space-between"};
         width: 100vw;
-        background-color: ${props => props.home ? "none" : "rgba(245, 158, 226, 0.50)"};
     }
 `;
 

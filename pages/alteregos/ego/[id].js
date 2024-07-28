@@ -126,6 +126,7 @@ const MobileContent = styled.div`
         justify-content: center;
         height: 100vh;
         width: 100vw;
+        margin-top: 10vh;
     }
 `;
 

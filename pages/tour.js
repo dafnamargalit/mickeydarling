@@ -26,15 +26,15 @@ export default function Tour() {
       <Head>
         <title>Mickey Darling – Tour</title>
       </Head>
-      <Container>
-        <TourBus pathLength={busPathLength} />
+      <TourBus pathLength={busPathLength} />
         <BusColor />
+      <Container>
         <TourTitle src={tourTitle} alt="tour" />
-        <Header/> 
           <TourWrap>
             <TourList />
           </TourWrap>
       </Container>
+      <MobileContainer />
   </Layout>
   );
 }
@@ -45,10 +45,25 @@ const Container = styled.div`
     justify-content: center;
     flex-direction: column;
     height: 100vh;
-    top: 0;
-    overflow: hidden;
     width: 100vw;
-    position: relative;
+    overflow: scroll;
+    @media (max-width: 768px) {
+      background: rgba(245, 158, 226, 0.70);
+      z-index: 2;
+      position: absolute;
+    }
+`;
+
+const MobileContainer = styled.div`
+    display: none;
+    @media (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100vw;
+    }
 `;
 
 const Header = styled.div`
@@ -121,33 +136,19 @@ transform: scaleX(1.1);
 `;
 
 const TourWrap = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 40vw;
-  height: 62vh;
-  background: rgba(245, 158, 226, 0.90);
   z-index: 2;
-  overflow-y: scroll;
+  width: 60vw;
+  background: rgba(245, 158, 226, 0.70);
+  margin-top: 10vh;
 
   &::-webkit-scrollbar {
     display: none;
   }
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
-
+  
   @media (max-width: 768px) {
-    width: 100vw;
-    height: 100vh;
-    background: rgba(245, 158, 226, 0.70);
-    margin-bottom: 10vh;
-  }
-
-  animation: fadein 2s;
-
-@keyframes fadein {
-    0% { opacity: 0; }
-    100%   { opacity: 1; }
-}
-
+    width: 90vw;
+    margin-top: 150vh;
+    background: none;
 `;
