@@ -133,14 +133,12 @@ const AboutCard = styled(motion.div)`
     display: flex;
     flex-direction: column;
     width: 25vw; 
-    height: 25vw; 
     background-color: #ffeb3b; 
     border: 1px solid #ffdd00;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     margin-right: 15vw;
     @media (max-width: 768px){
         width: 90vw;
-        height: 90vw;
         margin: 0;
     }
 `;
