@@ -54,7 +54,8 @@ const Avatar = styled(Image)`
 
 const Title = styled.p`
     margin: 0;
-    font-size: 1.5em;
+    font-size: 1.25em;
     font-weight: 600;
     color: #000;
+    text-align: center;
 `;
