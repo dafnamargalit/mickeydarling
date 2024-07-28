@@ -6,7 +6,7 @@ import tape from 'assets/tape.webp';
 import Layout from 'components/Layout';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
-
+import { motion } from 'framer-motion';
 export default function About() {
 
   var [pathLength, setPathLength] = useState(null);
@@ -26,7 +26,10 @@ export default function About() {
         <HeartDrawing pathLength={pathLength}/>
         <AboutTitleStyled />
         <Content>
-        <WrapPhoto>
+        <WrapPhoto
+          animate={{ opacity: [0, 1] }}
+          transition={{ duration: 2 }}
+        >
           <Tape src={tape} width="150" height="auto" alt="tape" />
           <AboutPhoto src={aboutPhoto} width="500" height="auto" alt="mickey" />
           <Tape2 src={tape} width="150" height="auto" alt="tape" />
@@ -82,7 +85,7 @@ const AboutTitleStyled = styled(AboutTitle)`
     }
 `;
 
-const WrapPhoto = styled.div`
+const WrapPhoto = styled(motion.div)`
 display: flex;
 position: relative;
 @media (max-width: 768px) {
