@@ -1,1 +1,1 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+I made the website for mickey darling ! You can view it here: [https://sexiestboyband.com]
