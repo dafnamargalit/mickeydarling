@@ -75,7 +75,6 @@ const AboutTitleStyled = styled(AboutTitle)`
     height: 150px;
     position: absolute;
     top: 1vh;
-    background: rgba(245, 158, 226);
     z-index: 3;
 
     @media (max-width: 768px) {

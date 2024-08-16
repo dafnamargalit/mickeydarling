@@ -57,7 +57,6 @@ const Container = styled.div`
 const TourTitle = styled(Image)`
     width: 300px;
     height: auto;
-    background: rgba(245, 158, 226);
     z-index: 3;
     margin-bottom: 5vh;
     position: absolute;
