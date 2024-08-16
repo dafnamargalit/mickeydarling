@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 
 export function TourList() {
   const scriptRoot = useRef(null); // gets assigned to a root node
-  const script = `<div id="seated-55fdf2c0" data-artist-id="61c022e9-ba24-41ea-ba55-a874927fd6e3" data-css-version="3"></div><script src="https://widget.seated.com/app.js"></script>`;
+  const script = `<div id=${process.env.NEXT_PUBLIC_SEATED_ID} data-artist-id=${process.env.NEXT_PUBLIC_SEATED_ARTIST_TOKEN} data-css-version="3"></div><script src="https://widget.seated.com/app.js"></script>`;
 
   useEffect(() => {
     // creates a document range (grouping of nodes in the document is my understanding)
