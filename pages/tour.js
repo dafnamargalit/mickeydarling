@@ -46,7 +46,6 @@ const Container = styled.div`
     flex-direction: column;
     height: 100vh;
     width: 100vw;
-    overflow: scroll;
 
     @media (max-width: 768px) {
       justify-content: space-between;
@@ -115,8 +114,9 @@ transform: scaleX(1.1);
 const TourWrap = styled.div`
   z-index: 2;
   width: 60vw;
+  height: 70vh;
   background: rgba(245, 158, 226, 0.70);
-
+  overflow: scroll;
   &::-webkit-scrollbar {
     display: none;
   }
