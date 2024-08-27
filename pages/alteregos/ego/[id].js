@@ -30,7 +30,7 @@ export default function AlterEgo() {
     } = getAlterEgoById(id)
 
     return (
-        <Layout>
+        <>
             <Head>
             <title>Mickey Darling – {ego?.name}</title>
             </Head>
@@ -83,7 +83,7 @@ export default function AlterEgo() {
                 <YoutubeEmbed embedId={ego?.embed} />
                 </VideoWrap>
             </MobileContent>
-        </Layout>
+        </>
     )
 }
 
