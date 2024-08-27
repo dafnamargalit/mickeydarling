@@ -10,9 +10,6 @@ const Layout = ({ children }) => (
                     stiffness: 260,
                     damping: 20,
                 }}
-                style={{
-                    overflow: "hidden",
-                }}
             >
                 {children}
             </motion.div>

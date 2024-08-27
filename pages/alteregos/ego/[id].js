@@ -92,7 +92,6 @@ const Container = styled.div`
     height: 100vh;
     width: 100vw;
     position: relative;
-    overflow: scroll;
     @media (max-width: 768px){
         display: none;
     }
@@ -126,7 +125,6 @@ const MobileContent = styled.div`
         justify-content: center;
         height: 100vh;
         width: 100vw;
-        overflow: scroll;
         margin-top: 20vh;
     }
 `;
