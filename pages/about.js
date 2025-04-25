@@ -50,13 +50,15 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
+    padding: 2rem;
     position: relative;
+    overflow: visible;
+    margin-top: 100px;
     @media (max-width: 768px) {
-      height: 100%;
-      width: 100vw;
-      margin-top: 10vh;
+      padding: 1rem;
+      min-height: auto;
+      margin-top: 80px;
     }
 `;
 
@@ -64,9 +66,15 @@ const Content = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 2rem;
     z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 2rem;
     @media (max-width: 768px) {
-      flex-direction: column; 
+      flex-direction: column;
+      gap: 1rem;
+      padding-top: 1rem;
     }
 `;
 
@@ -74,47 +82,47 @@ const AboutTitleStyled = styled(AboutTitle)`
     width: 350px;
     height: 150px;
     position: absolute;
-    top: 1vh;
+    top: -40px;
     z-index: 3;
 
     @media (max-width: 768px) {
         width: 200px;
-        top:20vh;
-        background: none;
+        height: auto;
+        position: relative;
+        top: 0;
     }
 `;
 
 const WrapPhoto = styled(motion.div)`
-display: flex;
-position: relative;
-@media (max-width: 768px) {
-    align-items: center;
-    justify-content: center;
-    margin-top: 5vh;
-}
+    display: flex;
+    position: relative;
+    max-width: 500px;
+    width: 100%;
+    @media (max-width: 768px) {
+        max-width: 300px;
+    }
 `;
 
 const AboutPhoto = styled(Image)`
-    width: 500px;
+    width: 100%;
     height: auto;
+    object-fit: contain;
     @media (max-width: 768px) {
-        width: 90%;
         border-radius: 50%;
     }
 `;
 
-
 const AboutDescription = styled.div`
     display: flex;
-    width: 45vw;
-    margin-left: 5vw;
+    width: 45%;
     text-align: center;
     font-size: 1.15rem;
+    line-height: 1.6;
 
     @media (max-width: 768px) {
-      width: 90%;
-      margin: 5vh 0;
-      font-size: 1rem;
+        width: 100%;
+        font-size: 1rem;
+        padding: 0 1rem;
     }
 `;
 
@@ -149,6 +157,7 @@ z-index: -1;
 position: absolute;
 left: 3vw;
 transform: scaleX(1.1) translateY(40vh);
+opacity: 0.6;
 
 & path {
     fill: none;
@@ -170,7 +179,7 @@ transform: scaleX(1.1) translateY(40vh);
     }
 
   @media (max-width: 768px) {
-    h
+
     margin-top: 0vh;
   }
 }
